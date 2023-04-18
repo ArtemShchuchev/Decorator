@@ -30,8 +30,21 @@ int main(int argc, char** argv)
 {
 	printHeader(L"Домашнее задание к занятию «Структурные шаблоны: Proxy, Decorator, Adapter»");
 
-	auto text_block = new ItalicText(new BoldText(new Text()));
-    text_block->render("Hello world");
+	auto text_block = new BoldText(new ItalicText(new Text()));
+    text_block->render(L"Привет, Мир!");
+	std::wcout << "\n\n";
+
+	auto text_parag = new Paragraph(new Text());
+	text_parag->render(L"Новый параграф");
+	std::wcout << "\n\n";
+
+	auto text_reverse = new Reversed(new Text());
+	text_reverse->render(L"Задом на перёд");
+	std::wcout << "\n\n";
+
+	auto text_link = new Link(new Text());
+	text_link->render(L"netology.ru", L"Hello world");
+	std::wcout << "\n\n";
 
 	return 0;
 }
